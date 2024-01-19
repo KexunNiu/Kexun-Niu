@@ -3,10 +3,86 @@
   border-radius: 50px;
   padding: 20px;
   height: auto;
+  display: flex;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.imgBox {
+  width:20vh;
+  height: 20vh;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  border:#7f7b6d solid 5px;
+  box-shadow: 0 0 10px #7f7b6d;
+  animation: breathing 3s linear infinite;
 }
 
 img {
+  width: 20vh;
+  height: 20vh;
+  border-radius: "50%";
+}
+
+.grid-container {
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  max-width: 80vw;
+}
+
+img:hover {
+  transform: scale(1.2);
+}
+
+@keyframes breathe {
+  0% {
+   box-shadow: 0 0 0 15px rgba(188, 237, 243, 0.3)
+  }
+  40% {
+   box-shadow: 0 0 0 15px rgba(188, 237, 243, 0.5)
+  }
+  80% {
+   box-shadow: 0 0 0 15px rgba(188, 237, 243, 0.3)
+  }
+  100% {
+   box-shadow: 0 0 0 15px rgba(188, 237, 243, 0.3)
+  }
+}
+
+video {
   width: 100%;
-  height: auto;
-  border-radius: 50px;
+  height: 100%;
+  object-fit: cover;
+  position: fixed;
+}
+
+svg.icon {
+  z-index:0;
+}
+
+.videoBg {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  z-index:10;
+}
+
+svg {
+  position:relative;
+  z-index: 10;
+  animation: easeInFromTop 2s ease-in-out;
+}
+
+@keyframes easeInFromTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-500%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
