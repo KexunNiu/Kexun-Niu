@@ -1,0 +1,12 @@
+.serviceBox {
+  background-color: #37352F;
+  border-radius: 50px;
+  padding: 20px;
+  height: auto;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  border-radius: 50px;
+}
