@@ -55,6 +55,7 @@ video {
   height: 100%;
   object-fit: cover;
   position: fixed;
+  z-index:-1;
 }
 
 svg.icon {
@@ -67,7 +68,6 @@ svg.icon {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  z-index:10;
 }
 
 svg {

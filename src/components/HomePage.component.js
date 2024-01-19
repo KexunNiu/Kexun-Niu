@@ -46,7 +46,7 @@ const HomeComponent = () => {
 
     const handleAnimationEnd = () => {
       // Gradually reduce the element's opacity for a smooth fade-out
-      videoBgElement.style.transition = "opacity 0.3s ease-in-out";
+      videoBgElement.style.transition = "opacity 1s ease-in-out";
       videoBgElement.style.opacity = 0;
 
       // Remove the element from the DOM after the fade-out effect
@@ -54,7 +54,7 @@ const HomeComponent = () => {
         if (videoBgElement && videoBgElement.parentNode) {
           videoBgElement.parentNode.removeChild(videoBgElement);
         }
-      }, 400); // Adjust the delay based on the transition duration
+      }, 1100); // Adjust the delay based on the transition duration
     };
 
     // Add event listener for the animationend event
@@ -67,14 +67,10 @@ const HomeComponent = () => {
   }, []);
 
   return (
-    <div
-      style={{
-        backgroundColor: "#1F1F1F",
-      }}
-    >
+    <div>
       <ReactAudioPlayer src={audioBg} autoPlay />
+      <video src={videoBg} autoPlay loop></video>
       <div className="videoBg">
-        <video src={videoBg} autoPlay loop></video>
         <div className="name">
           <svg
             width="58"
@@ -424,10 +420,9 @@ const HomeComponent = () => {
               <hr />
             </div>
             <div
-              className="neighbours"
+              className="neighbours border shadow rounded"
               style={{
-                backgroundColor: "#37352F",
-                borderRadius: "30px",
+                backgroundColor: "rgba(55, 53, 47, 0.4)",
                 padding: "20px",
                 width: "auto",
               }}
