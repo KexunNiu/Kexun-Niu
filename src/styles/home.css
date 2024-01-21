@@ -93,17 +93,16 @@ svg {
 .soundControl {
   width: 5rem;
   height: 5rem;
-  position: absolute;
+  position: fixed;
   background: none;
   border: none;
-  bottom: 5rem;
-  right: 5rem;
+  bottom: 1rem;
+  right: 1rem;
 }
 
 .soundImg {
   width: 5rem;
   height: 5rem;
-  position: absolute;
   background: none;
   border: none;
   animation: spin 2s linear infinite;
@@ -126,4 +125,20 @@ svg {
 }
 .soundImg.paused {
   animation-play-state: paused;
+}
+
+@media screen and (max-width: 768px) {
+  .soundControl {
+    width: 1rem;
+    height: 1rem;
+    position: fixed;
+    background: none;
+    border: none;
+    bottom: 4.5rem;
+    right: 4.5rem;
+  }
+  .serviceBox {
+    width: 60%;
+    margin: 0 auto;
+  }
 }/*# sourceMappingURL=home.css.map */
