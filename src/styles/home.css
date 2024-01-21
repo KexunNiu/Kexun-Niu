@@ -1,12 +1,16 @@
 .serviceBox {
-  background-color: #37352F;
+  background-color: rgba(0, 0, 0, 0.378);
   border-radius: 50px;
   padding: 20px;
-  height: auto;
+  width: 100%;
   display: flex;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
+}
+
+a.services {
+  width: auto;
+  margin: 1rem 0;
 }
 
 .imgBox {

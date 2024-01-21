@@ -422,10 +422,7 @@ const HomeComponent = () => {
         </div>
       </div>
       <div
-        className="container-sm d-flex flex-row justify-content-evenly flex-wrap-reverse pt-5 shadow"
-        style={{
-          height: "100vh",
-        }}
+        className="container-sm d-flex flex-row justify-content-evenly flex-wrap-reverse pt-5 shadow-lg"
       >
         <div className="p-3">
           <div>
@@ -441,9 +438,9 @@ const HomeComponent = () => {
               <hr />
             </div>
             <div
-              className="neighbours border shadow rounded"
+              className="neighbours shadow-lg rounded"
               style={{
-                backgroundColor: "rgba(55, 53, 47, 0.4)",
+                backgroundColor: "rgba(55, 53, 47, 0.3)",
                 padding: "20px",
                 width: "auto",
               }}
@@ -468,10 +465,10 @@ const HomeComponent = () => {
         {/* ------------------------------------------------------------------ */}
         <div className="middle-content flex-grow-1 d-flex flex-column ">
           <div className="overflow-hidden w-100 h-100"></div>
-          <div className="serviceBox justify-content-around align-items-baseline flex-wrap box shadow">
+          <div className="serviceBox shadow-lg">
             {Object.keys(services).map((key, index) => (
               <a
-                className={buttonClass[index % 4]}
+                className={`${buttonClass[index % 4]} services`}
                 href={services[key]}
                 key={key}
                 rel="noreferrer"
@@ -491,6 +488,7 @@ const HomeComponent = () => {
             💻Profile
           </Emoji>
           <div
+            className="shadow-lg"
             style={{
               backgroundColor: "#37352F",
               borderRadius: "30px",
