@@ -10,12 +10,12 @@
 }
 
 .imgBox {
-  width:20vh;
+  width: 20vh;
   height: 20vh;
   border-radius: 50%;
   position: relative;
   overflow: hidden;
-  border:#7f7b6d solid 5px;
+  border: #7f7b6d solid 5px;
   box-shadow: 0 0 10px #7f7b6d;
   animation: breathing 3s linear infinite;
 }
@@ -37,33 +37,33 @@ img:hover {
 
 @keyframes breathe {
   0% {
-   box-shadow: 0 0 0 15px rgba(188, 237, 243, 0.3)
+    box-shadow: 0 0 0 15px rgba(188, 237, 243, 0.3);
   }
   40% {
-   box-shadow: 0 0 0 15px rgba(188, 237, 243, 0.5)
+    box-shadow: 0 0 0 15px rgba(188, 237, 243, 0.5);
   }
   80% {
-   box-shadow: 0 0 0 15px rgba(188, 237, 243, 0.3)
+    box-shadow: 0 0 0 15px rgba(188, 237, 243, 0.3);
   }
   100% {
-   box-shadow: 0 0 0 15px rgba(188, 237, 243, 0.3)
+    box-shadow: 0 0 0 15px rgba(188, 237, 243, 0.3);
   }
 }
-
 video {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   position: fixed;
-  z-index:-1;
+  z-index: -1;
 }
 
 svg.icon {
-  z-index:0;
+  z-index: 0;
 }
 
 .videoBg {
-  display:flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -71,7 +71,7 @@ svg.icon {
 }
 
 svg {
-  position:relative;
+  position: relative;
   z-index: 10;
   animation: easeInFromTop 2s ease-in-out;
 }
@@ -86,3 +86,40 @@ svg {
     transform: translateY(0);
   }
 }
+.soundControl {
+  width: 5rem;
+  height: 5rem;
+  position: absolute;
+  background: none;
+  border: none;
+  bottom: 5rem;
+  right: 5rem;
+}
+
+.soundImg {
+  width: 5rem;
+  height: 5rem;
+  position: absolute;
+  background: none;
+  border: none;
+  animation: spin 2s linear infinite;
+}
+
+.videoBg.fade-out {
+  /* Transition for the videoBg element during fade-out */
+  transition: opacity 1s ease-in-out;
+}
+
+.videoBg.fade-out.animation-disabled {
+  /* Disable transition during animation */
+  transition: none;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.soundImg.paused {
+  animation-play-state: paused;
+}/*# sourceMappingURL=home.css.map */

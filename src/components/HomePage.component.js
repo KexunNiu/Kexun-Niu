@@ -1,13 +1,16 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Emoji from "react-emoji-render";
 import ReactAudioPlayer from "react-audio-player";
 import avatar from "../otter.jpg";
 import resume from "../Resume.pdf";
 import videoBg from "../backgroundVideo.mp4";
 import audioBg from "../backgroundMusic.mp3";
+import soundControl from "../sound_control.png";
 import "../styles/home.css";
 
 const HomeComponent = () => {
+  
+
   //external link
   const neighbours = {
     "Damain Li": "http://damianli.com",
@@ -40,36 +43,54 @@ const HomeComponent = () => {
     "btn btn-outline-light grid-item",
   ];
 
+  const [muted, setMuted] = useState(true);
+
   //find div className = name and intro, when animation ends, remove the class videoBg
   useEffect(() => {
     const videoBgElement = document.querySelector(".videoBg");
 
-    const handleAnimationEnd = () => {
-      // Gradually reduce the element's opacity for a smooth fade-out
-      videoBgElement.style.transition = "opacity 1s ease-in-out";
-      videoBgElement.style.opacity = 0;
+    if (videoBgElement) {
+      const handleAnimationEnd = () => {
+        // Gradually reduce the element's opacity for a smooth fade-out
+        videoBgElement.classList.add("fade-out", "animation-disabled");
+        videoBgElement.style.opacity = 0;
 
-      // Remove the element from the DOM after the fade-out effect
-      setTimeout(() => {
-        if (videoBgElement && videoBgElement.parentNode) {
-          videoBgElement.parentNode.removeChild(videoBgElement);
-        }
-      }, 1100); // Adjust the delay based on the transition duration
-    };
+        // Remove the element from the DOM after the fade-out effect
+        setTimeout(() => {
+          if (videoBgElement && videoBgElement.parentNode) {
+            videoBgElement.parentNode.removeChild(videoBgElement);
+          }
+        }, 1100); // Adjust the delay based on the transition duration
+      };
 
-    // Add event listener for the animationend event
-    videoBgElement.addEventListener("animationend", handleAnimationEnd);
+      // Add event listener for the animationend event
+      videoBgElement.addEventListener("animationend", handleAnimationEnd);
 
-    // Clean up the event listener when the component is unmounted
-    return () => {
-      videoBgElement.removeEventListener("animationend", handleAnimationEnd);
-    };
-  }, []);
+      // Clean up the event listener when the component is unmounted
+      return () => {
+        videoBgElement.removeEventListener("animationend", handleAnimationEnd);
+      };
+    }
+
+    // If videoBgElement is null, return a cleanup function with no action
+    return () => {};
+  }, [muted]);
+
+  const handleSoundMutted = () => {
+    if (muted) {
+      setMuted(false);
+    } else {
+      setMuted(true);
+    }
+  };
 
   return (
     <div>
-      <ReactAudioPlayer src={audioBg} autoPlay />
-      <video src={videoBg} autoPlay loop></video>
+      <button className="soundControl" onClick={handleSoundMutted}>
+        <img src={soundControl} alt="sound control" className={`soundImg ${muted ? "paused" : ""}`} />
+      </button>
+      <ReactAudioPlayer id="audioPlayer" src={audioBg} autoPlay loop muted={muted} />
+      <video src={videoBg} autoPlay loop muted></video>
       <div className="videoBg">
         <div className="name">
           <svg
