@@ -118,6 +118,10 @@ svg {
   transition: none;
 }
 
+.info-panel{
+  background-color: rgba(55, 53, 47, 0.3);
+}
+
 @keyframes spin {
   to {
     transform: rotate(360deg);

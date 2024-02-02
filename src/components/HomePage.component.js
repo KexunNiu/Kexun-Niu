@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from "react";
 import Emoji from "react-emoji-render";
 import ReactAudioPlayer from "react-audio-player";
+
 import avatar from "../otter.jpg";
 import resume from "../Resume.pdf";
 import videoBg from "../backgroundVideo.mp4";
 import audioBg from "../backgroundMusic.mp3";
+import audio2 from "../backgroundMusic2.mp3";
 import soundControl from "../sound_control.png";
 import "../styles/home.css";
 
 const HomeComponent = () => {
-  
-
   //external link
   const neighbours = {
-    "Damain Li": "http://damianli.com",
+    "Damian Li": "http://damianli.com",
     "Jinglong Zhao": "https://pornhub.com",
   };
 
@@ -25,15 +25,14 @@ const HomeComponent = () => {
   };
 
   const services = {
-    Posts: "/posts",
-    Gallery: "/gallery",
+    Posts: "https://kexunniu.vercel.app",
     Resume: resume,
     Bilibili: "https://www.bilibili.com/",
     Gmail: "https://mail.google.com/mail/u/0/#inbox?compose=new",
     LinkedIn: "https://www.linkedin.com/",
     PxxxHxx: "https://pornhub.com",
 
-    More: "https://google.com",
+    Search: "https://google.com",
   };
 
   const buttonClass = [
@@ -87,9 +86,20 @@ const HomeComponent = () => {
   return (
     <div>
       <button className="soundControl" onClick={handleSoundMutted}>
-        <img src={soundControl} alt="sound control" className={`soundImg ${muted ? "paused" : ""}`} />
+        <img
+          src={soundControl}
+          alt="sound control"
+          className={`soundImg ${muted ? "paused" : ""}`}
+        />
       </button>
-      <ReactAudioPlayer id="audioPlayer" src={audioBg} autoPlay loop muted={muted} />
+      <ReactAudioPlayer
+        id="audioPlayer"
+        src={audio2}
+        autoPlay
+        loop
+        muted={muted}
+        volume={0.3}
+      />
       <video src={videoBg} autoPlay loop muted></video>
       <div className="videoBg">
         <div className="name">
@@ -421,9 +431,7 @@ const HomeComponent = () => {
           </svg>
         </div>
       </div>
-      <div
-        className="container-sm d-flex flex-row justify-content-evenly flex-wrap-reverse pt-5 shadow-lg"
-      >
+      <div className="container-sm d-flex flex-row justify-content-evenly flex-wrap-reverse pt-5 shadow-lg">
         <div className="p-3">
           <div>
             <Emoji
@@ -463,14 +471,17 @@ const HomeComponent = () => {
         </div>
 
         {/* ------------------------------------------------------------------ */}
-        <div className="middle-content flex-grow-1 d-flex flex-column ">
-          <div className="overflow-hidden w-100 h-100"></div>
+        <div className="middle-content flex-grow-1 d-flex flex-column justify-content-between">
+          <div className="overflow-hidden w-100 h-75 shadow-lg info-panel rounded">
+
+          </div>
           <div className="serviceBox shadow-lg">
             {Object.keys(services).map((key, index) => (
               <a
                 className={`${buttonClass[index % 4]} services`}
                 href={services[key]}
                 key={key}
+                target="_blank"
                 rel="noreferrer"
               >
                 {key}
