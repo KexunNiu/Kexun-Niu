@@ -11,7 +11,7 @@ import "../styles/home.css";
 
 const HomeComponent = () => {
   const API_KEY = "hx4611zcr3X0uBt4U7jKxljQXq8MHaYS5kfTUkkv1txKAgaCqaviLjgO";
-  const API_URL = "https://api.pexels.com/videos/search?query=aerial&orientation=landscape&min_width=2000&min_height=1080";
+  const API_URL = "https://api.pexels.com/videos/search?query=aerial&orientation=landscape&min_width=2000&min_height=1080&per_page=20";
   //external link
   const neighbours = {
     "Damian Li": "http://damianli.com",
@@ -98,7 +98,11 @@ const HomeComponent = () => {
       const fetchedVideos = data.videos;
       //random select a video from the list
       const randomIndex = Math.floor(Math.random() * fetchedVideos.length);
-      setVideos(fetchedVideos[randomIndex].video_files[4].link);
+      //find the video with the highest resolution
+      const video = fetchedVideos[randomIndex].video_files.reduce((prev, current) =>
+        prev.width > current.width ? prev : current
+      );
+      setVideos(video.link);
 
     } catch (error) {
       console.log(error);
