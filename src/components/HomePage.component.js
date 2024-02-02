@@ -4,13 +4,14 @@ import ReactAudioPlayer from "react-audio-player";
 
 import avatar from "../otter.jpg";
 import resume from "../Resume.pdf";
-import videoBg from "../backgroundVideo.mp4";
-import audioBg from "../backgroundMusic.mp3";
+// import videoBg from "../backgroundVideo.mp4";
 import audio2 from "../backgroundMusic2.mp3";
 import soundControl from "../sound_control.png";
 import "../styles/home.css";
 
 const HomeComponent = () => {
+  const API_KEY = "hx4611zcr3X0uBt4U7jKxljQXq8MHaYS5kfTUkkv1txKAgaCqaviLjgO";
+  const API_URL = "https://api.pexels.com/videos/search?query=aerial&orientation=landscape&min_width=2000&min_height=1080";
   //external link
   const neighbours = {
     "Damian Li": "http://damianli.com",
@@ -44,6 +45,14 @@ const HomeComponent = () => {
 
   const [muted, setMuted] = useState(true);
 
+  const handleSoundMutted = () => {
+    if (muted) {
+      setMuted(false);
+    } else {
+      setMuted(true);
+    }
+  };
+
   //find div className = name and intro, when animation ends, remove the class videoBg
   useEffect(() => {
     const videoBgElement = document.querySelector(".videoBg");
@@ -75,13 +84,30 @@ const HomeComponent = () => {
     return () => {};
   }, [muted]);
 
-  const handleSoundMutted = () => {
-    if (muted) {
-      setMuted(false);
-    } else {
-      setMuted(true);
+  const [videos, setVideos] = useState(""); //fetch video from pexels
+
+  //fetch video from pexels
+  const fetchVideo = async () => {
+    try {
+      const response = await fetch(API_URL, {
+        headers: {
+          Authorization: API_KEY,
+        },
+      });
+      const data = await response.json();
+      const fetchedVideos = data.videos;
+      //random select a video from the list
+      const randomIndex = Math.floor(Math.random() * fetchedVideos.length);
+      setVideos(fetchedVideos[randomIndex].video_files[4].link);
+
+    } catch (error) {
+      console.log(error);
     }
   };
+
+  useEffect(() => {
+    fetchVideo();
+  },[]);
 
   return (
     <div>
@@ -100,7 +126,7 @@ const HomeComponent = () => {
         muted={muted}
         volume={0.3}
       />
-      <video src={videoBg} autoPlay loop muted></video>
+      <video src={videos} autoPlay loop muted></video>
       <div className="videoBg">
         <div className="name">
           <svg
@@ -472,9 +498,7 @@ const HomeComponent = () => {
 
         {/* ------------------------------------------------------------------ */}
         <div className="middle-content flex-grow-1 d-flex flex-column justify-content-between">
-          <div className="overflow-hidden w-100 h-75 shadow-lg info-panel rounded">
-
-          </div>
+          <div className="overflow-hidden w-100 h-75 shadow-lg info-panel rounded"></div>
           <div className="serviceBox shadow-lg">
             {Object.keys(services).map((key, index) => (
               <a
