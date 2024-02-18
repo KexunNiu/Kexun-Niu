@@ -11,7 +11,7 @@ import "../styles/home.css";
 
 const HomeComponent = () => {
   const API_KEY = "hx4611zcr3X0uBt4U7jKxljQXq8MHaYS5kfTUkkv1txKAgaCqaviLjgO";
-  const API_URL = "https://api.pexels.com/videos/search?query=aerial&orientation=landscape&min_width=2000&min_height=1080&per_page=20";
+  const API_URL = "https://api.pexels.com/videos/search?query=aerial&orientation=landscape&min_width=2000&min_height=1080&per_page=20 ";
   //external link
   const neighbours = {
     "Damian Li": "http://damianli.com",
@@ -130,7 +130,7 @@ const HomeComponent = () => {
         muted={muted}
         volume={0.3}
       />
-      <video src={videos} autoPlay loop muted></video>
+      <video src={videos} autoPlay loop playsInline muted></video>
       <div className="videoBg">
         <div className="name">
           <svg
