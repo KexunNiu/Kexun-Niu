@@ -15,7 +15,7 @@ const HomeComponent = () => {
   //external link
   const neighbours = {
     "Damian Li": "http://damianli.com",
-    "Jinglong Zhao": "https://pornhub.com",
+    "Jinglong Zhao": "https://google.com",
   };
 
   const contacts = {
@@ -31,8 +31,6 @@ const HomeComponent = () => {
     Bilibili: "https://www.bilibili.com/",
     Gmail: "https://mail.google.com/mail/u/0/#inbox?compose=new",
     LinkedIn: "https://www.linkedin.com/",
-    PxxxHxx: "https://pornhub.com",
-
     Search: "https://google.com",
   };
 
