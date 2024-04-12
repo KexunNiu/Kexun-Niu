@@ -1,7 +1,12 @@
 .serviceBox {
-  background-color: rgba(0, 0, 0, 0.378);
+  background-color: rgba(86, 86, 86, 0.378);
   border-radius: 50px;
   padding: 20px;
+  width: 100%;
+  display: flex;
+}
+.allServices{
+  padding: 5px;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -110,12 +115,7 @@ svg {
 
 .videoBg.fade-out {
   /* Transition for the videoBg element during fade-out */
-  transition: opacity 1s ease-in-out;
-}
-
-.videoBg.fade-out.animation-disabled {
-  /* Disable transition during animation */
-  transition: none;
+  transition: opacity 2s ease-in-out;
 }
 
 .info-panel{
