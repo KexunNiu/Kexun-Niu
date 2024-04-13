@@ -1,0 +1,49 @@
+.postDetailPage {
+  background-color: #DEE2E6;
+  padding: 2rem; /* Reduce padding for smaller screens */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  flex-wrap: wrap; /* Allow items to wrap */
+}
+
+.info-container {
+  background-color: #E9ECEF;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  flex: 0 1 100%; /* Take full width on smaller screens */
+  margin: 3rem auto; /* Add some space between sections */
+}
+.info-container h1 {
+  margin-bottom: 1rem;
+}
+
+.renderer-container {
+  background-color: #F8F9FA;
+  padding: 5rem;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  flex: 1 1 100%; /* Take full width on smaller screens */
+}
+
+.badge {
+  margin-right: 0.5rem;
+  color: white;
+}
+
+.badge-cat {
+  background-color: #007BFF;
+}
+
+@media (min-width: 768px) {
+  .info-container {
+    flex: 0 1 300px;
+    margin-right: 2rem;
+    order: -1; /* Move the info-container to the left */
+  }
+  .renderer-container {
+    flex: 1 1 calc(60% - 2rem); /* Adjust width to accommodate margin */
+  }
+}/*# sourceMappingURL=postDetailPage.css.map */
