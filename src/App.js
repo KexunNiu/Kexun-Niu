@@ -4,7 +4,7 @@ import { Routes, Route } from "react-router-dom";
 //Components
 import NavComponent from "./components/Nav.component";
 import HomeComponent from "./components/HomePage.component";
-import PostPageComponent from "./components/PostPage.component";
+import PostsComponent from "./components/Posts.component";
 import GalleryPageComponent from "./components/GalleryPage.component";
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
       <NavComponent />
       <Routes>
         <Route path="/" element={<HomeComponent />} />
-        <Route path="/posts" element={<PostPageComponent />} />
+        <Route path="/posts" element={<PostsComponent />} />
         <Route path="/gallery" element={<GalleryPageComponent />} />
         
       </Routes>

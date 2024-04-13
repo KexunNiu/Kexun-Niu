@@ -1,6 +1,7 @@
 import React from "react";
 import Emoji from "react-emoji-render";
 import resume from "../Resume.pdf";
+import PostsComponent from "./Posts.component";
 
 const ServiceBox = () => {
   const services = {
@@ -21,19 +22,22 @@ const ServiceBox = () => {
   ];
 
   return (
-    <div className="middle-content flex-grow-1 d-flex flex-column justify-content-between">
-      <div className="overflow-hidden w-100 h-75 shadow-lg info-panel rounded">
-        <iframe
-          src="https://kexunniu.vercel.app"
-          title="posts"
-          frameBorder="0"
-          width="100%"
-          height="100%"
-          allowFullScreen
-        ></iframe>
+    <div className="middle-content flex-grow-1 d-flex flex-column shadow-lg p-3">
+      <div>
+          <Emoji
+            className="text-wrap"
+            style={{
+              color: "white",
+            }}
+          >
+            📹 Posts
+          </Emoji>
+        </div>
+      <div className="info-panel mb-3">
+        <PostsComponent />
       </div>
 
-      <div className="serviceBox  shadow-lg flex-column">
+      <div className="serviceBox shadow-lg flex-column">
         <div>
           <Emoji
             className="text-wrap"
@@ -41,7 +45,7 @@ const ServiceBox = () => {
               color: "white",
             }}
           >
-            🚀Services
+            🛠️ Services
           </Emoji>
         </div>
         <div className="allServices">

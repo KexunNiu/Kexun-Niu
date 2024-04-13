@@ -119,7 +119,12 @@ svg {
 }
 
 .info-panel{
-  background-color: rgba(55, 53, 47, 0.3);
+  overflow-y: auto; /* Enable vertical scrolling */
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-height: 500px; /* Set maximum height */ /* Add space to the top of the panel */
 }
 
 @keyframes spin {
@@ -146,3 +151,28 @@ svg {
     margin: 0 auto;
   }
 }/*# sourceMappingURL=home.css.map */
+
+.thumbnailImg {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.thumbnailContainer {
+  height: 100%;
+  width: 100%;
+  overflow:hidden;
+}
+
+.card {
+  background-color: #37352F;
+  border-radius: 10px;
+  width: 35rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.badge {
+  background-color: #666666b9;
+  color: #aeaeae;
+  padding: 0.5rem;
+}
