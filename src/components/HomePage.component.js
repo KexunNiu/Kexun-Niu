@@ -425,6 +425,17 @@ const HomeComponent = () => {
           </svg>
         </div>
       </div>
+      <hr style={
+        {
+          color: "rgba(255, 255, 255, 1)",
+          border: "1.5px solid rgba(255, 255, 255, 1)",
+          width:"50%",
+          marginLeft: "auto",
+          marginRight: "auto",
+          marginBottom: "5%",
+          borderRadius: "5px"
+        }
+      }></hr>
       <div className="main-content container-lg d-flex flex-row justify-content-evenly flex-wrap-reverse pt-5 mb-5 shadow-lg">
         <Neighbours></Neighbours>
         <ServiceBox></ServiceBox>
