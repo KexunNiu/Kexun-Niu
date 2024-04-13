@@ -5,7 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import NavComponent from "./components/Nav.component";
 import HomeComponent from "./components/HomePage.component";
 import PostsComponent from "./components/Posts.component";
-import GalleryPageComponent from "./components/GalleryPage.component";
+import PostsDetailComponent from "./components/PostsDetail.component";
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomeComponent />} />
         <Route path="/posts" element={<PostsComponent />} />
-        <Route path="/gallery" element={<GalleryPageComponent />} />
+        <Route path="/posts/:id" element={<PostsDetailComponent />} />
         
       </Routes>
     </div>
