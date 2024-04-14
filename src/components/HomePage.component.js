@@ -436,7 +436,7 @@ const HomeComponent = () => {
           borderRadius: "5px"
         }
       }></hr>
-      <div className="main-content container-lg d-flex flex-row justify-content-evenly flex-wrap-reverse pt-5 mb-5 shadow-lg">
+      <div className="main-content container-xlg d-flex flex-row justify-content-evenly flex-wrap-reverse pt-5 mb-5">
         <Neighbours></Neighbours>
         <ServiceBox></ServiceBox>
         <Info></Info>
