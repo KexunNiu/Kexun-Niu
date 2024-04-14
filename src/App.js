@@ -14,7 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomeComponent />} />
         <Route path="/posts" element={<PostsComponent />} />
-        <Route path="/posts/:title" element={<PostsDetailComponent />} />
+        <Route path="/posts/:slug" element={<PostsDetailComponent />} />
         
       </Routes>
     </div>

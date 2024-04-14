@@ -9,7 +9,7 @@ const PostCard = ({ post }) => {
   };
   return (
     <div className="card shadow-lg m-3">
-      <Link to={`/posts/${post.title}`} state={post} className="text-decoration-none">
+      <Link to={`/posts/${post.slug}`} state={post} className="text-decoration-none">
         <div className="thumbnailContainer">
           <img
             src={post.thumbnail}
