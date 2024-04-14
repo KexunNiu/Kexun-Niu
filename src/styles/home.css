@@ -1,9 +1,9 @@
 .serviceBox {
-  background-color: rgba(86, 86, 86, 0.378);
   border-radius: 50px;
-  padding: 20px;
+  padding: 10px;
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
 }
 .allServices {
   padding: 5px;
@@ -119,14 +119,27 @@ svg {
 }
 
 .info-panel {
+  background-color: #ffffff30;
   overflow-y: auto; /* Enable vertical scrolling */
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   padding: 20px;
+  max-height: 540px;
+  max-width: 100%;
+  align-items: center;
 
-  max-height: 500px; /* Set maximum height */ /* Add space to the top of the panel */
+  /* Scrollbar styling */
+  scrollbar-width: thin;
+  scrollbar-color: #ef900c #ffffff3e;
+
+  /* Webkit scrollbar styling */
+  scrollbar-width: thin;
+  scrollbar-color: #ef900c #ffffff3e;
+
+  /* Firefox scrollbar styling */
+  scrollbar-width: thin;
+  scrollbar-color: #ef900c #ffffff3e;
 }
 
 @keyframes spin {
@@ -151,6 +164,14 @@ svg {
   .serviceBox {
     width: 60%;
     margin: 0 auto;
+  }
+
+  .info-panel {
+    max-height: 100%;
+  }
+
+  .searchInput {
+    width: 60%;
   }
 }
 
@@ -214,4 +235,10 @@ svg {
 
 .searchInput::placeholder {
   color: #ef900c;
+}
+
+.tagsContainer {
+  display: flex;
+  flex-wrap: wrap; /* Allow tags to wrap to the next line */
+  max-width: 100%; /* Set a maximum width */
 }

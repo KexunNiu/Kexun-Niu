@@ -54,7 +54,7 @@ function PostsComponent() {
 
   return (
     <div className="info-panel">
-      <div>
+      <div className="tagsContainer">
         {tags.map((tag) => (
           <button key={tag} onClick={() => handleTagSelect(tag)} className="tagButton">
             {tag}
