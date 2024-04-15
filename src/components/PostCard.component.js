@@ -24,7 +24,7 @@ const PostCard = ({ post }) => {
           <p className="card-text text-white-50">{post.summary}</p>
           {post.tags &&
             post.tags.map((tag) => (
-              <span className="badge rounded-pill m-1">{tag}</span>
+              <span className="badge rounded-pill m-1" key={tag}>{tag}</span>
             ))}
         </div>
       </Link>

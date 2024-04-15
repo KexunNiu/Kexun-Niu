@@ -30,7 +30,7 @@ const Info = () => {
       >
         <div className="d-flex flex-column justify-content-evenly align-items-center">
           <div className="imgBox">
-            <img className="mb-5" src={avatar} alt="avatar"></img>
+            <img className="avatar mb-5" src={avatar} alt="avatar"></img>
           </div>
 
           <h4>
