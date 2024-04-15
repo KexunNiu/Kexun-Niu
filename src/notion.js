@@ -22,6 +22,20 @@ export async function getAllPostInfo() {
   return data;
 }
 
+export async function findPostBySlug(slug) {
+  //url to fetch all posts
+  const apiUrl = `https://notion-api.splitbee.io/v1/table/${tableId}`;
+
+  //fetch all posts
+  const data = await fetch(apiUrl).then((res) => res.json());
+
+  //find the post with the given slug
+  const post = data.find((post) => post.slug === slug);
+
+  return new Post(post.id,post.title,post.summary,post.category,post.date,post.tags,post.thumbnail[0].url,post.slug);
+}
+
+
 export async function getAllPageId() {
   const apiUrl = `https://notion-api.splitbee.io/v1/table/${tableId}`;
 

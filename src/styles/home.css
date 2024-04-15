@@ -40,7 +40,7 @@ img {
   max-width: 80vw;
 }
 
-img:hover {
+img.avatar:hover {
   transform: scale(1.2);
 }
 
@@ -241,4 +241,35 @@ svg {
   display: flex;
   flex-wrap: wrap; /* Allow tags to wrap to the next line */
   max-width: 100%; /* Set a maximum width */
+}
+
+.fade-in {
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
+}
+
+.fade-in.active {
+  opacity: 1;
+}
+
+.fade-in.active {
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.ease-in-message {
+  transition: opacity 1.3s ease-in; /* Adjust timing as needed */
+  opacity: 0; /* Start with hidden */
+}
+
+.visible {
+  opacity: 1; /* Fully visible */
 }
