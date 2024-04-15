@@ -1,3 +1,42 @@
+.Landing .loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.729);
+  opacity: 1;
+  visibility: visible; /* Explicitly set visibility */
+  transition: opacity 0.5s ease-out, visibility 0.5s ease-out 0.5s; /* Delay visibility transition */
+}
+
+
+
+
+.Landing:not(.loading) .loading-container {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.Landing .content {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 1s ease-in, visibility 0s ease-in 0.5s; /* Delay visibility to align with opacity */
+}
+
+.Landing.loading .content {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.Landing:not(.loading) .content {
+  visibility: visible;
+  opacity: 1;
+}
+
 .serviceBox {
   border-radius: 50px;
   padding: 10px;
@@ -209,7 +248,7 @@ svg {
   width: 5em;
   transition: all 0.3s;
   color: white;
-  box-shadow: 4px -1px 19px -4px rgba(240,173,78,0.63);
+  box-shadow: 4px -1px 19px -4px rgba(240, 173, 78, 0.63);
 }
 
 .tagButton:hover {
@@ -272,4 +311,29 @@ svg {
 
 .visible {
   opacity: 1; /* Fully visible */
+}
+
+.loader {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #ef900c;
+  position: relative;
+}
+.loader:before,
+.loader:after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  inset: 0;
+  background: #fff;
+  transform: rotate(0deg) translate(30px);
+  animation: rotate 1s ease infinite;
+}
+.loader:after {
+  animation-delay: 0.5s
+}
+@keyframes rotate {
+  100% {transform: rotate(360deg) translate(30px)
+}
 }
