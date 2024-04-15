@@ -22,7 +22,7 @@ const ServiceBox = () => {
   ];
 
   return (
-    <div className="middle-content flex-grow-1 d-flex flex-column shadow-lg p-3">
+    <div className="middle-content d-flex flex-column shadow-lg p-3">
       <div>
         <Emoji
           className="text-wrap"

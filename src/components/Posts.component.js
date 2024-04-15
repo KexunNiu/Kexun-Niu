@@ -53,7 +53,7 @@ function PostsComponent() {
   });
 
   return (
-    <div className="info-panel">
+    <div className="PostsContainr">
       <div className="tagsContainer">
         {tags.map((tag) => (
           <button key={tag} onClick={() => handleTagSelect(tag)} className="tagButton">
@@ -73,7 +73,7 @@ function PostsComponent() {
           className="searchInput"
         />
       </div>
-      <div>
+      <div class="post-container">
         {filteredPosts.map((post) => (
           <PostCard key={post.id} post={post} />
         ))}

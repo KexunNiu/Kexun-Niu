@@ -159,13 +159,13 @@ svg {
 
 .info-panel {
   background-color: #ffffff30;
-  overflow-y: auto; /* Enable vertical scrolling */
+  overflow-y: scroll; /* Enable vertical scrolling */
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  padding: 20px;
   max-height: 540px;
   max-width: 100%;
+  padding: 1rem;
   align-items: center;
 
   /* Scrollbar styling */
@@ -190,7 +190,7 @@ svg {
   animation-play-state: paused;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 641px) {
   .soundControl {
     width: 1rem;
     height: 1rem;
@@ -205,24 +205,64 @@ svg {
     margin: 0 auto;
   }
 
-  .info-panel {
-    max-height: 100%;
+  .videoBg {
+    max-width: 70%;
+    margin: 0 auto;
+  }
+  .videoBg svg {
+    width: 8%;
   }
 
-  .searchInput {
-    width: 60%;
+  .info-panel {
+    max-height: 500px;
   }
+
+  .middle-content {
+    max-width: 90%;
+  }
+
+  .postCard {
+    display: flex; /* Use flexbox to align the title horizontally */
+    background-color: #f8f9fa; /* Light background for the list item */
+    border-bottom: 1px solid #dee2e6; /* Add a border to separate items */
+    max-width: 60%;
+  }
+
+  .post-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  
+  }
+  .tagsContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+
 }
 
 .thumbnailImg {
+  position: relative;
   -o-object-fit: cover;
   object-fit: cover;
 }
 
 .thumbnailContainer {
+  position: relative;
   height: 100%;
   width: 100%;
   overflow: hidden;
+}
+
+.category-badge{
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  z-index: 1;
 }
 
 .card {
@@ -264,6 +304,7 @@ svg {
   border: none;
   width: 100%;
   transition: all 0.3s ease-in-out;
+  text-align: center;
 }
 
 .searchInput:focus {
