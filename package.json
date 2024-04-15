@@ -13,6 +13,7 @@
     "react-dom": "^18.2.0",
     "react-emoji-render": "^2.0.1",
     "react-live-clock": "^6.1.19",
+    "react-loader-spinner": "^6.1.6",
     "react-lottie": "^1.2.4",
     "react-notion": "^0.10.0",
     "react-notion-x": "^6.16.0",

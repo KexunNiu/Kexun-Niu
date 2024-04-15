@@ -2,6 +2,7 @@ import React from "react";
 import { getStaticProps, findPostBySlug } from "../notion";
 import { NotionRenderer } from "react-notion";
 import { useParams, useLocation, Link } from "react-router-dom";
+import {ColorRing,DNA, ThreeCircles,MutatingDots,CirclesWithBar, Audio} from 'react-loader-spinner';
 
 import "../styles/postDetailPage.css";
 
@@ -13,6 +14,17 @@ const PostsDetail = () => {
   const [blockMap, setBlockMap] = React.useState(null);
   const [loading, setLoading] = React.useState(true);
   const [showDelayedMessage, setShowDelayedMessage] = React.useState(false);
+
+  const spinners = [
+    <ColorRing />,
+    <DNA />,
+    <ThreeCircles />,
+    <MutatingDots />,
+    <CirclesWithBar />,
+    <Audio />,
+  ]
+
+  const randomSpinner = spinners[Math.floor(Math.random() * spinners.length)];
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -65,10 +77,7 @@ const PostsDetail = () => {
   if (loading || !blockMap) {
     return (
       <div className="position-absolute top-50 start-50 translate-middle d-flex flex-column align-items-center">
-        <div
-          className="spinner-border"
-          style={{ width: "3rem", height: "3rem" }}
-        ></div>
+        {randomSpinner}
         <div style={{ height: "3rem" }}></div>
         <div
           style={{
