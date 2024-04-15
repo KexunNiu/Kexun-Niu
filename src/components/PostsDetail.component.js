@@ -14,17 +14,9 @@ const PostsDetail = () => {
   const [blockMap, setBlockMap] = React.useState(null);
   const [loading, setLoading] = React.useState(true);
   const [showDelayedMessage, setShowDelayedMessage] = React.useState(false);
+  const [randomSpinner, setRandomSpinner] = React.useState(null);
 
-  const spinners = [
-    <ColorRing />,
-    <DNA />,
-    <ThreeCircles />,
-    <MutatingDots />,
-    <CirclesWithBar />,
-    <Audio />,
-  ]
 
-  const randomSpinner = spinners[Math.floor(Math.random() * spinners.length)];
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -34,6 +26,16 @@ const PostsDetail = () => {
 
   React.useEffect(() => {
     setLoading(true);
+    const spinners = [
+      <ColorRing />,
+      <DNA />,
+      <ThreeCircles />,
+      <MutatingDots />,
+      <CirclesWithBar />,
+      <Audio />,
+    ]
+    const randomSpinner = spinners[Math.floor(Math.random() * spinners.length)];
+    setRandomSpinner(randomSpinner);
     if (location.state) {
       setPost(location.state);
       setLoading(false);
@@ -69,7 +71,7 @@ const PostsDetail = () => {
   React.useEffect(() => {
     const timer = setTimeout(() => {
       setShowDelayedMessage(true);
-    }, 5000); // Delay set to 5000 milliseconds (5 seconds)
+    }, 6000); // Delay set to 5000 milliseconds (5 seconds)
 
     return () => clearTimeout(timer); // Clear timer on component unmount
   }, []);
@@ -86,7 +88,7 @@ const PostsDetail = () => {
 
           className={`text-primary h6 m-1 ease-in-message ${showDelayedMessage ? 'visible' : ''}`}
         >
-          If it takes too long,
+          The page you are looking for probably doesn't exist.
         </div>
         <div
           style={{
@@ -94,7 +96,7 @@ const PostsDetail = () => {
           }}
           className={`text-primary h6 m-1 ease-in-message ${showDelayedMessage ? 'visible' : ''}`}
         >
-          Please considering going &nbsp;
+          Check out &nbsp;
           <Link to={"/"} className="btn btn-outline-warning">
             <p className="h6 m-1">Home</p>
           </Link>
