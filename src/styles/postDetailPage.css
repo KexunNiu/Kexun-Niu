@@ -46,4 +46,35 @@
   .renderer-container {
     flex: 1 1 calc(60% - 2rem); /* Adjust width to accommodate margin */
   }
+}
+.return-top {
+  position: fixed;
+  bottom: 90px;
+  right: 30px;
+  color: #007BFF;
+  border: none;
+  width: 50px;
+  height: 50px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.return-top:hover {
+  color: #ef900c;
+}
+
+.return-bottom {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  color: #007BFF;
+  border: none;
+  width: 50px;
+  height: 50px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.return-bottom:hover {
+  color: #ef900c;
 }/*# sourceMappingURL=postDetailPage.css.map */

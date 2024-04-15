@@ -235,6 +235,8 @@ const HomeComponent = () => {
               />
             </svg>
           </div>
+          <br></br>
+          <br></br>
           <div className="intro">
             <svg
               width="72"
