@@ -1,7 +1,6 @@
-
 /*
-    Content-Security-Policy: default-src 'self'; img-src 'self' https://api.pexels.com; connect-src 'self' https://notion-api.splitbee.io;
-    X-Frame-Options = "DENY"
-    X-XSS-Protection = "1; mode=block"
-    Referrer-Policy = "no-referrer-when-downgrade"
-    X-Content-Type-Options = "nosniff"
+    Content-Security-Policy: default-src 'self'; media-src 'self' https://api.pexels.com; connect-src 'self' https://notion-api.splitbee.io; img-src 'self' https://www.notion.so; style-src 'self' https://cdn.jsdelivr.net
+    X-Frame-Options = "DENY";
+    X-XSS-Protection = "1; mode=block";
+    Referrer-Policy = "no-referrer-when-downgrade";
+    X-Content-Type-Options = "nosniff";
