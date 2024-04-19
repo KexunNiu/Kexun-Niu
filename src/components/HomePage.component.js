@@ -70,7 +70,7 @@ const HomeComponent = () => {
       const handleCanPlayThrough = () => {
         setTimeout(() => {
           setLoading(false);
-        }, 1000);
+        }, 4000);
       };
 
       videoElement.addEventListener("canplaythrough", handleCanPlayThrough);
