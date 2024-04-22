@@ -59,7 +59,7 @@ const ServiceBox = () => {
         <div className="allServices">
           {Object.keys(services).map((key, index) => (
             <a
-              className={`${buttonClass[index % 4]} services`}
+              className={`${buttonClass[index % 4]} services m-1`}
               href={services[key]}
               key={key}
               target="_blank"
