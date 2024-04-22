@@ -2,12 +2,11 @@ import { React, useState, useEffect } from "react";
 import { Post, getAllPostInfo } from "../notion";
 import PostCard from "./PostCard.component";
 
-
 function PostsComponent() {
   const [posts, setPosts] = useState([]);
   const [tags, setTags] = useState([]);
-  const [selectedTag, setSelectedTag] = useState('');
-  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedTag, setSelectedTag] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     getAllPostInfo().then((data) => {
@@ -32,8 +31,8 @@ function PostsComponent() {
     });
   }, []);
 
-  const handleTagSelect = (tag) => {
-    setSelectedTag(tag);
+  const handleTagSelect = (event) => {
+    setSelectedTag(event.target.value);
   };
 
   const handleSearch = (event) => {
@@ -46,23 +45,30 @@ function PostsComponent() {
       return false;
     }
     // Filter based on search query
-    if (searchQuery && !post.title.toLowerCase().includes(searchQuery.toLowerCase())) {
+    if (
+      searchQuery &&
+      !post.title.toLowerCase().includes(searchQuery.toLowerCase())
+    ) {
       return false;
     }
     return true;
   });
 
   return (
-    <div className="PostsContainr">
-      <div className="tagsContainer">
-        {tags.map((tag) => (
-          <button key={tag} onClick={() => handleTagSelect(tag)} className="tagButton">
-            {tag}
-          </button>
-        ))}
-        <button onClick={() => handleTagSelect('')} className="tagButton">
-          All
-        </button>
+    <div className="PostsContainer">
+      <div className="tagsContainer mb-1">
+        <select
+          value={selectedTag}
+          onChange={handleTagSelect}
+          className="selectTags"
+        >
+          <option value="" key="all" selected>All</option>
+          {tags.map((tag) => (
+            <option key={tag} value={tag}>
+              {tag}
+            </option>
+          ))}
+        </select>
       </div>
       <div>
         <input

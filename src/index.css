@@ -10,14 +10,14 @@
 
 /* Styles for the scrollbar track */
 ::-webkit-scrollbar {
-  width: 5px; /* Width of the scrollbar */
-  background-color: rgba(0, 0, 0, 0, 0.3); /* Semi-transparent background color */
+  width: 3px; /* Width of the scrollbar */
+  background-color: rgba(0, 0, 0, 0, 0.048);
 }
 
 /* Styles for the scrollbar thumb */
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(to bottom, #ff7e5f, #62a4ff); /* Gradient background color */
-  border-radius: 6px; /* Rounded corners */
+  border-radius: 10px; /* Rounded corners */
 }
 
 /* Change thumb color when hovering */
@@ -28,4 +28,12 @@
 /* Change thumb color when clicking */
 ::-webkit-scrollbar-thumb:active {
   background: linear-gradient(to bottom, #ff6340, #fb8e5d);
+}
+
+::-webkit-scrollbar:horizontal {
+  height: 3px; /* Height of the scrollbar */
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+  background: linear-gradient(to right, #ff7e5f, #62a4ff); /* Gradient background color */
 }

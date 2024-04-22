@@ -378,3 +378,30 @@ svg {
   100% {transform: rotate(360deg) translate(30px)
 }
 }
+
+.selectTags {
+  background-color: #ffffff;
+  color: #000000;
+  padding: 0.5rem;
+  border-radius: 5px;
+  margin: 0.5rem;
+  width:100%;
+  border:#cecece solid 1px;
+}
+
+.selectTags option:hover {
+  cursor: pointer;
+  background-color: #ffffff;
+}
+
+.selectTags:hover {
+  cursor: pointer;
+  background-color: #ffffff;
+}
+
+.selectTags:focus {
+  outline: none;
+  border: #ef900c solid 1px;
+  box-shadow: 0 0 10px #ef900c;
+}
+
