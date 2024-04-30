@@ -12,6 +12,7 @@ import {
 } from "react-loader-spinner";
 
 import "../styles/postDetailPage.css";
+import NotFound from "../NotFound.png";
 
 const PostsDetail = () => {
   const location = useLocation();
@@ -103,20 +104,7 @@ const PostsDetail = () => {
             showDelayedMessage ? "visible" : ""
           }`}
         >
-          The page you are looking for probably doesn't exist.
-        </div>
-        <div
-          style={{
-            visibility: showDelayedMessage ? "visible" : "hidden",
-          }}
-          className={`text-primary h6 m-1 ease-in-message ${
-            showDelayedMessage ? "visible" : ""
-          }`}
-        >
-          Check out &nbsp;
-          <Link to={"/"} className="btn btn-outline-warning">
-            <p className="h6 m-1">Home</p>
-          </Link>
+          <img src={NotFound} alt="404Notfound" className="notFoundImg"></img>
         </div>
       </div>
     );
@@ -149,7 +137,11 @@ const PostsDetail = () => {
         }`}
       >
         <NotionRenderer blockMap={blockMap} />
-        <Link to={"/"} ref={returnRef} className="btn btn-outline-secondary mt-5">
+        <Link
+          to={"/"}
+          ref={returnRef}
+          className="btn btn-outline-secondary mt-5"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="20"
@@ -167,10 +159,7 @@ const PostsDetail = () => {
         </Link>
       </div>
       <div>
-        <button
-          className="btn return-top"
-          onClick={handleToTop}
-        >
+        <button className="btn return-top" onClick={handleToTop}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="48"
@@ -187,10 +176,7 @@ const PostsDetail = () => {
         </button>
       </div>
       <div>
-        <button
-          className="btn return-bottom"
-          onClick={handleToBottom}
-        >
+        <button className="btn return-bottom" onClick={handleToBottom}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="48"
