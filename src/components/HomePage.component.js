@@ -68,9 +68,7 @@ const HomeComponent = () => {
     const videoElement = videoRef.current;
     if (videoElement) {
       const handleCanPlayThrough = () => {
-        setTimeout(() => {
           setLoading(false);
-        }, 4000);
       };
 
       videoElement.addEventListener("canplaythrough", handleCanPlayThrough);
