@@ -10,6 +10,7 @@ function PostsComponent() {
 
   useEffect(() => {
     getAllPostInfo().then((data) => {
+      console.log(data);
       const posts = data.map((post) => {
         return new Post(
           post.id,
@@ -18,7 +19,7 @@ function PostsComponent() {
           post.category,
           post.date,
           post.tags,
-          post.thumbnail[0].url,
+          post.thumbnail && post.thumbnail[0] ? post.thumbnail[0].url : null,
           post.slug
         );
       });
@@ -62,7 +63,7 @@ function PostsComponent() {
           onChange={handleTagSelect}
           className="selectTags"
         >
-          <option value="" key="all" selected>All</option>
+          <option value="" key="all">All</option>
           {tags.map((tag) => (
             <option key={tag} value={tag}>
               {tag}
@@ -79,7 +80,7 @@ function PostsComponent() {
           className="searchInput"
         />
       </div>
-      <div class="post-container">
+      <div className="post-container">
         {filteredPosts.map((post) => (
           <PostCard key={post.id} post={post} />
         ))}
