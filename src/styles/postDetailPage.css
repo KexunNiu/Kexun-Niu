@@ -85,4 +85,14 @@
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 10px;
+}
+
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background: linear-gradient(to right, #ff6f4e, #62a4ff);
+  transform-origin: 0%;
 }/*# sourceMappingURL=postDetailPage.css.map */

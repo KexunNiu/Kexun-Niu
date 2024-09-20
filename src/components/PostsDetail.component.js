@@ -2,17 +2,12 @@ import React from "react";
 import { getStaticProps, findPostBySlug } from "../notion";
 import { NotionRenderer } from "react-notion";
 import { useParams, useLocation, Link } from "react-router-dom";
-import {
-  ColorRing,
-  DNA,
-  ThreeCircles,
-  MutatingDots,
-  CirclesWithBar,
-  Audio,
-} from "react-loader-spinner";
+import { motion, useScroll } from "framer-motion"
 
 import "../styles/postDetailPage.css";
 import NotFound from "../NotFound.png";
+
+
 
 const PostsDetail = () => {
   const location = useLocation();
@@ -23,7 +18,9 @@ const PostsDetail = () => {
   const [blockMap, setBlockMap] = React.useState(null);
   const [loading, setLoading] = React.useState(true);
   const [showDelayedMessage, setShowDelayedMessage] = React.useState(false);
-  const [randomSpinner, setRandomSpinner] = React.useState(null);
+
+  const { scrollYProgress } = useScroll();
+
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -41,16 +38,6 @@ const PostsDetail = () => {
 
   React.useEffect(() => {
     setLoading(true);
-    const spinners = [
-      <ColorRing />,
-      <DNA />,
-      <ThreeCircles />,
-      <MutatingDots />,
-      <CirclesWithBar />,
-      <Audio />,
-    ];
-    const randomSpinner = spinners[Math.floor(Math.random() * spinners.length)];
-    setRandomSpinner(randomSpinner);
     if (location.state) {
       setPost(location.state);
       setLoading(false);
@@ -86,7 +73,7 @@ const PostsDetail = () => {
   React.useEffect(() => {
     const timer = setTimeout(() => {
       setShowDelayedMessage(true);
-    }, 6000); // Delay set to 5000 milliseconds (5 seconds)
+    }, 500); // Delay set to 5000 milliseconds (5 seconds)
 
     return () => clearTimeout(timer); // Clear timer on component unmount
   }, []);
@@ -94,7 +81,6 @@ const PostsDetail = () => {
   if (loading || !blockMap) {
     return (
       <div className="position-absolute top-50 start-50 translate-middle d-flex flex-column align-items-center">
-        {randomSpinner}
         <div style={{ height: "3rem" }}></div>
         <div
           style={{
@@ -110,10 +96,10 @@ const PostsDetail = () => {
     );
   }
 
-  console.log(returnRef);
 
   return (
     <div className="postDetailPage">
+      <motion.div className="progress-bar" style={{ scaleX: scrollYProgress }} />  
       <div
         className={`info-container container-sm ${
           !loading ? "fade-in active" : "fade-in"
