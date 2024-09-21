@@ -2,7 +2,7 @@ import { React } from "react";
 import { Link } from "react-router-dom";
 
 const PostCard = ({ post }) => {
-  //select a random badge style
+
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     const options = { month: "short", day: "numeric", year: "numeric" };
