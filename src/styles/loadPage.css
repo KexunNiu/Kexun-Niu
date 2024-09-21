@@ -1,0 +1,33 @@
+/* Styling for the loading container */
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #fff; /* Pure white background */
+  }
+  
+  /* Styling for the loading line (gray line background) */
+  .loading-line {
+    width: 200px;
+    height: 2px;
+    border-radius: 10px;
+    background-color: #ccc; /* Gray background */
+    position: relative;
+  }
+  
+  /* Styling for the progress bar (loaded part turns black) */
+  .loading-progress {
+    height: 100%;
+    background-color: #000; /* Black loaded part */
+    border-radius:10px;
+  }
+  
+  /* Styling for the progress percentage text */
+  .loading-percentage {
+    position: absolute;
+    font-size: 20px;
+    color: #605e5e; /* Black font color */
+    top: 50%; /* Position the text below the line */
+  }
+  
