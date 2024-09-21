@@ -9,7 +9,7 @@ const PostCard = ({ post }) => {
     return date.toLocaleDateString("en-US", options);
   };
   return (
-    <div className="postCard card shadow-lg mt-3">
+    <div className="postCard card w-100 shadow-lg mt-3">
       <Link
         to={`/posts/${post.slug}`}
         state={post}

@@ -55,22 +55,22 @@ function PostsComponent() {
   });
 
   return (
-    <div className="PostsContainer">
-      <div className="tagsContainer mb-1">
+    <div>
+      <div className="tagsAndSearchContainer mb-1">
         <select
           value={selectedTag}
           onChange={handleTagSelect}
           className="selectTags"
         >
-          <option value="" key="all" selected>All</option>
+          <option value="" key="all">
+            All
+          </option>
           {tags.map((tag) => (
             <option key={tag} value={tag}>
               {tag}
             </option>
           ))}
         </select>
-      </div>
-      <div>
         <input
           type="text"
           placeholder="Search Keywords"
