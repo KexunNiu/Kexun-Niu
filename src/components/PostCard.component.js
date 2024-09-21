@@ -2,14 +2,14 @@ import { React } from "react";
 import { Link } from "react-router-dom";
 
 const PostCard = ({ post }) => {
-  //select a random badge style
+
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     const options = { month: "short", day: "numeric", year: "numeric" };
     return date.toLocaleDateString("en-US", options);
   };
   return (
-    <div className="postCard card shadow-lg mt-3">
+    <div className="postCard card w-100 shadow-lg mt-3">
       <Link
         to={`/posts/${post.slug}`}
         state={post}

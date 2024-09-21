@@ -1,42 +1,3 @@
-.Landing .loading-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.729);
-  opacity: 1;
-  visibility: visible; /* Explicitly set visibility */
-  transition: opacity 0.5s ease-out, visibility 0.5s ease-out 0.5s; /* Delay visibility transition */
-}
-
-
-
-
-.Landing:not(.loading) .loading-container {
-  opacity: 0;
-  visibility: hidden;
-}
-
-.Landing .content {
-  visibility: hidden;
-  opacity: 0;
-  transition: opacity 1s ease-in, visibility 0s ease-in 0.5s; /* Delay visibility to align with opacity */
-}
-
-.Landing.loading .content {
-  visibility: hidden;
-  opacity: 0;
-}
-
-.Landing:not(.loading) .content {
-  visibility: visible;
-  opacity: 1;
-}
-
 .serviceBox {
   border-radius: 50px;
   padding: 10px;
@@ -61,7 +22,6 @@ a.services {
   width: 20vh;
   height: 20vh;
   border-radius: 50%;
-  position: relative;
   overflow: hidden;
   border: #7f7b6d solid 5px;
   box-shadow: 0 0 10px #7f7b6d;
@@ -119,22 +79,6 @@ svg.icon {
   height: 100vh;
 }
 
-svg {
-  position: relative;
-  z-index: 10;
-  animation: easeInFromTop 2s ease-in-out;
-}
-
-@keyframes easeInFromTop {
-  0% {
-    opacity: 0;
-    transform: translateY(-500%);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 .soundControl {
   width: 5rem;
   height: 5rem;
@@ -159,15 +103,15 @@ svg {
 }
 
 .info-panel {
-  background-color: #ffffff30;
+  background-color: #ffffff18;
   overflow-y: scroll; /* Enable vertical scrolling */
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  max-height: 540px;
-  max-width: 100%;
   padding: 1rem;
   align-items: center;
+  max-height: 1000px;
+  max-width: 100%;
 
   /* Scrollbar styling */
   scrollbar-width: thin;
@@ -191,7 +135,7 @@ svg {
   animation-play-state: paused;
 }
 
-@media screen and (max-width: 641px) {
+@media screen and (max-width: 650px) {
   .soundControl {
     width: 1rem;
     height: 1rem;
@@ -214,52 +158,58 @@ svg {
     width: 8%;
   }
 
-  .info-panel {
-    max-height: 500px;
-  }
-
-  .middle-content {
-    max-width: 90%;
-  }
-
   .postCard {
-    display: flex; /* Use flexbox to align the title horizontally */
-    background-color: #f8f9fa; /* Light background for the list item */
-    border-bottom: 1px solid #dee2e6; /* Add a border to separate items */
-    max-width: 60%;
+    padding: 12px; /* Reduce padding on small screens */
   }
 
-  .post-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-  
+  .category-badge {
+    font-size: 12px; /* Reduce the badge size on small screens */
   }
-  .tagsContainer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-  }
-
 }
 
-.thumbnailImg {
-  position: relative;
-  -o-object-fit: cover;
-  object-fit: cover;
+
+.middle-content {
+  min-width: 35%;
+}
+
+.postCard {
+  display: flex; /* Flexbox layout */
+  flex-direction: column; /* Ensure content is stacked vertically */
+  background-color: #f8f9fa; /* Light background for the card */
+  border-bottom: 1px solid #dee2e6; /* Border to separate cards */
+  width: 100%; /* Full width by default */
+  max-width: 600px; /* Limit max width on large screens */
+  margin: 0 auto; /* Center the card */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+  padding: 16px; /* Padding inside the card */
+  border-radius: 10px; /* Add border radius for smoother edges */
 }
 
 .thumbnailContainer {
   position: relative;
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
 }
 
-.category-badge{
+.thumbnailImg {
+  width: 100%;
+  height: 30vh;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+
+.post-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.tagsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.category-badge {
   position: absolute;
   top: 5px;
   left: 5px;
@@ -297,15 +247,10 @@ svg {
 }
 
 .searchInput {
-  background-color: #ffffff;
-  color: #000000;
-  font-size: small;
-  padding: 0.3rem;
-  border-radius: 10px;
-  border: none;
-  width: 100%;
-  transition: all 0.3s ease-in-out;
-  text-align: center;
+  flex: 1; /* Flex-grow: 1 to take the remaining space */
+  padding: 10px;
+  border-radius: 5px; 
+  border: #cecece solid 1px;
 }
 
 .searchInput:focus {
@@ -318,10 +263,18 @@ svg {
   color: #ef900c;
 }
 
-.tagsContainer {
-  display: flex;
-  flex-wrap: wrap; /* Allow tags to wrap to the next line */
-  max-width: 100%; /* Set a maximum width */
+.selectTags {
+  flex: 0 0 40%; /* Flex-grow: 0, Flex-shrink: 0, Flex-basis: 40% */
+  padding: 8px; /* Add some padding for a better look */
+  margin-right: 10px; /* Optional: Add some space between the select and input */
+}
+
+.tagsAndSearchContainer {
+  display: flex; /* Flexbox layout */
+  align-items: center; /* Vertically align items */
+  justify-content: flex-start; /* Align items to the left */
+  gap: 10px; /* Add spacing between select and input */
+  width: 100%; /* Ensure full width */
 }
 
 .fade-in {
@@ -373,11 +326,12 @@ svg {
   animation: rotate 1s ease infinite;
 }
 .loader:after {
-  animation-delay: 0.5s
+  animation-delay: 0.5s;
 }
 @keyframes rotate {
-  100% {transform: rotate(360deg) translate(30px)
-}
+  100% {
+    transform: rotate(360deg) translate(30px);
+  }
 }
 
 .selectTags {
@@ -386,8 +340,8 @@ svg {
   padding: 0.5rem;
   border-radius: 5px;
   margin: 0.5rem;
-  width:100%;
-  border:#cecece solid 1px;
+  width: 100%;
+  border: #cecece solid 1px;
 }
 
 .selectTags option:hover {
@@ -405,4 +359,3 @@ svg {
   border: #ef900c solid 1px;
   box-shadow: 0 0 10px #ef900c;
 }
-
