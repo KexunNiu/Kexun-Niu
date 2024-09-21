@@ -10,7 +10,6 @@ const LoadPage = () => {
     "https://api.pexels.com/videos/popular?orientation=landscape&min_width=2000&min_height=1080&per_page=20 ";
 
   const [videos, setVideos] = useState("");
-  const [loading, setLoading] = useState(true);
   const videoRef = useRef(null);
   const navigate = useNavigate();
 
@@ -55,7 +54,6 @@ const LoadPage = () => {
       };
 
       const handleCanPlayThrough = () => {
-        setLoading(false);
         clearInterval(progressInterval);
         progress.set(100);
         setDisplayedProgress(99);
